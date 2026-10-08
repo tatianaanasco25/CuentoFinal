@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lector de Cuentos Infantil e Inclusivo</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Librería PDF.js para procesar y extraer texto del PDF -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/2.16.105/pdf.min.js"></script>
+    <!-- Librería PageFlip para el efecto de paso de página -->
+    <script src="https://cdn.jsdelivr.net/npm/page-flip/dist/js/page-flip.browser.js"></script>
+</head>
+<body>
+    <header class="header">
+        <h1>📖 Cuento Infantil</h1>
+        
+        <!-- Barra de herramientas accesible -->
+        <div class="controls-container">
+            <!-- 4. Botones de Navegación -->
+            <div class="control-group">
+                <button id="prev-btn" class="btn btn-nav" aria-label="Página anterior" title="Ir a la página anterior">
+                    ⬅️ Anterior
+                </button>
+                <span id="page-info" class="page-info">Página 1</span>
+                <button id="next-btn" class="btn btn-nav" aria-label="Página siguiente" title="Ir a la página siguiente">
+                    Siguiente ➡️
+                </button>
+            </div>
+
+            <!-- 3. Lectura en Voz Alta -->
+            <div class="control-group">
+                <button id="tts-btn" class="btn btn-audio" aria-label="Leer en voz alta el texto de la página">
+                    🔊 Leer en voz alta
+                </button>
+            </div>
+
+            <!-- 3. Controles de Zoom / Tamaño de letra y vista -->
+            <div class="control-group">
+                <button id="zoom-in-btn" class="btn btn-zoom" aria-label="Agrandar vista y letra">
+                    🔍➕ Agrandar
+                </button>
+                <button id="zoom-out-btn" class="btn btn-zoom" aria-label="Achicar vista y letra">
+                    🔍➖ Achicar
+                </button>
+                <button id="zoom-reset-btn" class="btn btn-zoom" aria-label="Restablecer tamaño normal">
+                    🔄 Normal
+                </button>
+            </div>
+
+            <!-- 5. Control de Sonidos de la Naturaleza -->
+            <div class="control-group">
+                <button id="nature-sound-btn" class="btn btn-nature active" aria-label="Activar o desactivar sonidos ambientales">
+                    🌿 Sonidos: ON
+                </button>
+                <span id="nature-badge" class="nature-badge hidden">🍃 Naturaleza detectada</span>
+            </div>
+        </div>
+
+        <div id="loading">✨ Cargando tu cuento mágico...</div>
+    </header>
+
+    <main class="book-container">
+        <!-- El flipbook se generará dinámicamente aquí -->
+        <div id="flip-book" class="flip-book"></div>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>

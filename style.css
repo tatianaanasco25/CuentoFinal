@@ -1,0 +1,196 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #2c3e50;
+    color: #ecf0f1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.header {
+    text-align: center;
+    padding: 15px 20px;
+    background-color: #34495e;
+    width: 100%;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+}
+
+.header h1 {
+    font-size: 1.8rem;
+    color: #f1c40f;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+}
+
+/* Contenedor principal de botones de herramientas */
+.controls-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    width: 100%;
+    max-width: 1100px;
+}
+
+.control-group {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: rgba(0, 0, 0, 0.25);
+    padding: 6px 12px;
+    border-radius: 25px;
+}
+
+/* Estilos de Botones */
+.btn {
+    border: none;
+    padding: 10px 16px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.95rem;
+    transition: transform 0.1s, background-color 0.2s, box-shadow 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.2);
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(0,0,0,0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:focus {
+    outline: 3px solid #f1c40f;
+}
+
+/* Categorías de color por botón */
+.btn-nav {
+    background-color: #3498db;
+    color: white;
+}
+.btn-nav:hover { background-color: #2980b9; }
+
+.btn-audio {
+    background-color: #2ecc71;
+    color: white;
+}
+.btn-audio:hover { background-color: #27ae60; }
+.btn-audio.speaking {
+    background-color: #e74c3c;
+    animation: pulse 1.5s infinite;
+}
+
+.btn-zoom {
+    background-color: #9b59b6;
+    color: white;
+}
+.btn-zoom:hover { background-color: #8e44ad; }
+
+.btn-nature {
+    background-color: #16a085;
+    color: white;
+}
+.btn-nature.active {
+    background-color: #27ae60;
+}
+.btn-nature.disabled {
+    background-color: #7f8c8d;
+}
+
+/* Indicador visual de Naturaleza */
+.nature-badge {
+    background-color: #27ae60;
+    color: white;
+    font-size: 0.85rem;
+    font-weight: bold;
+    padding: 4px 10px;
+    border-radius: 12px;
+    animation: float 2s infinite ease-in-out;
+}
+
+.nature-badge.hidden {
+    display: none;
+}
+
+.page-info {
+    font-weight: bold;
+    font-size: 1rem;
+    color: #ffffff;
+    padding: 0 8px;
+    min-width: 90px;
+}
+
+#loading {
+    margin-top: 5px;
+    color: #f1c40f;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.book-container {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 30px;
+    width: 100%;
+    overflow: auto;
+}
+
+.flip-book {
+    display: none;
+    box-shadow: 0 0 25px rgba(0,0,0,0.8);
+    transition: transform 0.2s ease-out;
+    transform-origin: top center;
+}
+
+.page {
+    background-color: #fff;
+    border: solid 1px #bdc3c7;
+    overflow: hidden;
+}
+
+.page canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.stf__wrapper {
+    background-color: transparent !important;
+}
+
+/* Animaciones */
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0.7); }
+    70% { box-shadow: 0 0 0 10px rgba(231, 76, 60, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(231, 76, 60, 0); }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+
+@media (max-width: 600px) {
+    .btn {
+        padding: 8px 12px;
+        font-size: 0.85rem;
+    }
+}
